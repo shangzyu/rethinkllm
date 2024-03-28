@@ -7,22 +7,27 @@
 
 
 
-## 大模型组成原理
-### Tokenizer相关
+## LLM 组成原理
+### Tokenizer 相关
 [大模型基础知识系列：从头训练一个自己的Tokenizer](https://zhuanlan.zhihu.com/p/625715830)
 [没有思考过 Embedding，不足以谈 AI](https://zhuanlan.zhihu.com/p/643560252)
 
 ### Attention 相关
 Multi Head Attention(MHA)->Multi Query Attention(MQA)->Group Query Attention(GQA)  
 [为什么现在大家都在用 MQA 和 GQA？](https://lonepatient.top/2023/08/03/MHA_MQA_GQA.html)  
-[线性Attention的探索：Attention必须有个Softmax吗？](https://spaces.ac.cn/archives/7546)
+[线性Attention的探索：Attention必须有个Softmax吗？](https://spaces.ac.cn/archives/7546)  
+[为什么现在的LLM都是Decoder-only的架构？](https://spaces.ac.cn/archives/9529/comment-page-1) 区分了encoder和decoder，encoder只是具有双向注意力的decoder
 
 ### 位置编码
+[让研究人员绞尽脑汁的Transformer位置编码](https://kexue.fm/archives/8130)  
 绝对位置编码  
+Sinusoidal  
 相对位置编码  
 RoPE  
-[十分钟读懂旋转编码（RoPE）](https://zhuanlan.zhihu.com/p/647109286)  
+[Transformer升级之路：2、博采众长的旋转式位置编码](https://kexue.fm/archives/8265)  
+[十分钟读懂旋转编码（RoPE）](https://zhuanlan.zhihu.com/p/647109286)  讲清楚了位置编码的公式，如何从二维扩展到多维  
 [Transformer升级之路：12、无限外推的ReRoPE？](https://spaces.ac.cn/archives/9708)
+[再论大模型位置编码及其外推性（万字长文）](https://zhuanlan.zhihu.com/p/675243992)  
 ### 激活函数
 GELU/Swish/SwiGLU  
 [大模型基础｜激活函数｜从ReLU 到SwiGLU](https://zhuanlan.zhihu.com/p/650237644)
@@ -30,15 +35,14 @@ GELU/Swish/SwiGLU
 ### 参数量/计算量
 [分析transformer模型的参数量、计算量、中间激活、KV cache](https://zhuanlan.zhihu.com/p/624740065)  
 [LLM大模型之精度问题（FP16，FP32，BF16）详解与实践](https://zhuanlan.zhihu.com/p/657886517)  
-[LLM大模型之不同精度下显存占用与相互转换实践](https://zhuanlan.zhihu.com/p/658343628) fp16/fp32/bf16之间的相互转换，尾数位直接去掉，指数位-127+15
+[LLM大模型之不同精度下显存占用与相互转换实践](https://zhuanlan.zhihu.com/p/658343628) fp16/fp32/bf16之间的相互转换，尾数位直接去掉，指数位-127+15  
 [浅谈后向传递的计算量大约是前向传递的两倍](https://zhuanlan.zhihu.com/p/675517271)  
 [LLM（二十）：漫谈 KV Cache 优化方法，深度理解 StreamingLLM](https://zhuanlan.zhihu.com/p/659770503)
 [为什么大模型输入输出往往只有2K, 4K token?](https://www.zhihu.com/question/606514058)  
-### Normalization
+### Normalization  
 Post-LN&Pre-LN  
-Layer Norm  
-RMS Norm  
-[[论文笔记]RMSNorm：Root Mean Square Layer Normalization](https://zhuanlan.zhihu.com/p/669071548)
+Layer Norm&RMS Norm  
+[[论文笔记]RMSNorm：Root Mean Square Layer Normalization](https://zhuanlan.zhihu.com/p/669071548) RMS Norm就是均值为0的Layer Norm
 
 
 
@@ -46,7 +50,7 @@ RMS Norm
 
 
 
-## 大模型结构
+## LLM 结构
 ### 组成部分
 [为什么现在的LLM都是Decoder-only的架构？](https://spaces.ac.cn/archives/9529/comment-page-1) 区分了encoder和decoder，encoder只是具有双向注意力的decoder
 ### 常见模型
@@ -83,6 +87,8 @@ DPO
 ### PEFT
 Lora系列  
 [大模型参数高效微调技术原理综述（五）-LoRA、AdaLoRA、QLoRA](https://zhuanlan.zhihu.com/p/636215898)  
+[QLoRA（Quantized LoRA）详解](https://zhuanlan.zhihu.com/p/666234324)  
+[配置不同的学习率，LoRA还能再涨一点？](https://spaces.ac.cn/archives/10001)  
 P-Tuning  
 Prefix Tuning
 ### 分布式训练
@@ -145,4 +151,6 @@ GPTQ
 ## 数据工程
 数据预处理  
 [HuggingFace | 在HuggingFace中预处理数据的几种方式](https://zhuanlan.zhihu.com/p/341994096)  
-[大部分的大模型(LLM)采用左填充(left-padding)的原因](https://zhuanlan.zhihu.com/p/646852375)
+[大部分的大模型(LLM)采用左填充(left-padding)的原因](https://zhuanlan.zhihu.com/p/646852375)  
+数据工程  
+[研发大模型的血液--万字长文详谈数据工程](https://mp.weixin.qq.com/s/izePeavfxezfEkkPzgMmjQ)
